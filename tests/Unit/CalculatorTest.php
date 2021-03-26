@@ -112,10 +112,9 @@ class CalculatorTest extends TestCase
      */
     public function testCalculatorh()
     {
-        echo 'multiple operators - should return false\n';
+        $msg = 'multiple operators 1 + 4314.2 / / - should return false\n';
         $calculator = new Calculator;
         $result =  $calculator->calculate('1 + 4314.2 / /');
-        $msg = $calculator->getErrorMessage();
         $this->assertTrue($result == false, $msg);
     }
 

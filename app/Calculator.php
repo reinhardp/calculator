@@ -47,9 +47,11 @@ class Calculator extends Model
                         if($arr[$i-2] == '+') {
                             $result = $result - $arr[$i-1]; 
                             $result = $result + $temp;
-                        } else {
+                        } elseif($arr[$i-2] == '-') {
                             $result = $result + $arr[$i-1]; 
                             $result = $result - $temp;
+                        } else {
+                            $result = $result * $arr[$i+1]; 
                         }
                     } else {
                         $result = $result * $arr[$i+1];
@@ -66,9 +68,11 @@ class Calculator extends Model
                         if($arr[$i-2] == '+') {
                             $result = $result - $arr[$i-1]; 
                             $result = $result + $temp;
-                        } else {
+                        } elseif($arr[$i-2] == '-') {
                             $result = $result + $arr[$i-1]; 
                             $result = $result - $temp;
+                        } else {
+                            $result = $result / $arr[$i+1]; 
                         }
                         $i++;
                     } else {

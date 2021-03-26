@@ -23,53 +23,10 @@
                 </div>
 
                 <div class="container">
-                    <div class="row">
-                        <form action="{{ url('/home') }}" method="POST" class="col-md-6 col-md-offset-3 text-center" >
-                        {!! csrf_field() !!}
-                            <input name="value" type="text" class="form-control col-md-9" placeholder="expression..." value="{{$expresion}}"/>
-                            <input type="hidden" name="method" value="insert" />
-                            <input class="btn btn-success" type="submit" value="Submit"/>
-                        </form>
-                    </div>
-                   <div class="panel panel-default">
-                        <p class="panel-heading">Result</p>
-
-                        <p class="panel-body">
-                            {{$value}}
-                        </p>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">History
-                                <div align="right">
-                                <form action="{{ url('/home') }}" method="POST">
-                                    {!! csrf_field() !!}
-                                    <input type="hidden" name="method" value="clear" />
-                                    <input class="btn btn-success" type="submit" value="Clear"/>
-                                </form>
-                                </div>
-                            
-                        </div>
-        
-                            <div class="panel-body" >
-                            <table class="table table-striped table-responsive">
-                            <tbody >
-                                @foreach($history as $item)
-                                <tr key="tr{item.id}">
-                                    <td ">
-                                        {{$item->index}}
-                                    </td>
-                                    <td >{{$item->calculation}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                            </table>
-                            </div>
-                            
-                    </div>
-           
+@include('result')           
+@include('history')           
                 </div>
                 
-            </div>
             </div>
         </div>
     </body>
